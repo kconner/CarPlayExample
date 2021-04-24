@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CarPlayExampleApp: App {
+
     var body: some Scene {
-        WindowGroup {
+        return WindowGroup {
             ContentView()
         }
     }
+
 }
