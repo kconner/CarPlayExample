@@ -11,6 +11,7 @@ import CarPlay
 @objc class ExampleCarPlaySceneDelegate: NSObject, CPTemplateApplicationSceneDelegate {
     
     private var interfaceController: CPInterfaceController?
+    private var savedTabBarTemplate: CPTabBarTemplate?
     
     // https://developer.apple.com/documentation/carplay/displaying_content_in_carplay
     // CarPlay calls this function to initialize the scene.
@@ -18,8 +19,11 @@ import CarPlay
         // Save the interface controller
         self.interfaceController = interfaceController
         
+        let template = tabBarTemplate()
+        self.savedTabBarTemplate = template
+        
         // Create the root template (screen) and install it at the root of the navigation hierarchy.
-        interfaceController.setRootTemplate(tabBarTemplate(), animated: true, completion: nil)
+        interfaceController.setRootTemplate(template, animated: true, completion: nil)
     }
     
     func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didDisconnectInterfaceController interfaceController: CPInterfaceController) {
@@ -32,6 +36,15 @@ import CarPlay
             gridTemplate(),
             informationTemplate(layout: .leading),
             pointOfInterestTemplate(),
+        ])
+    }
+    
+    private func replaceTabs() {
+        self.savedTabBarTemplate?.updateTemplates([
+            listTemplate(),
+            gridTemplate(),
+            informationTemplate(layout: .leading),
+            informationTemplate(layout: .leading),
         ])
     }
 
@@ -47,11 +60,11 @@ import CarPlay
                     listItem(),
                     listItem(),
                     listItem(),
-                ]),
+                ], header: "First Section", sectionIndexTitle: nil),
                 CPListSection(items: [
                     listItem(),
                     listItem(),
-                ])
+                ], header: "Second Section", sectionIndexTitle: nil)
 
             ]
         )
@@ -62,7 +75,7 @@ import CarPlay
     }
     
     private func listItem() -> CPListTemplateItem {
-        let item = CPListItem(text: "text", detailText: "detail")
+        let item = CPListItem(text: "Text", detailText: "Detail Text", image: Assets.roundIconImage, accessoryImage: nil, accessoryType: .none)
         
         item.handler = { [weak self] (item, completion) in
             guard let self = self else {
@@ -124,17 +137,17 @@ import CarPlay
             title: "Information Title",
             layout: layout,
             items: [
-                CPInformationItem(title: "Item Title", detail: "Item Detail"),
+                CPInformationItem(title: "Item\nTitle\nThird\nFourth", detail: "Item\nDetail\nThird line\nFourth line"),
                 CPInformationItem(title: "Item Title", detail: nil),
                 CPInformationItem(title: "Item Title", detail: "Item Detail"),
                 CPInformationItem(title: "Item Title", detail: nil),
-                CPInformationItem(title: "Item Title", detail: "Item Detail"),
+                CPInformationItem(title: "Item Title Item Title Item Title Item Title Item Title", detail: "Item Detail Item Detail Item Detail Item Detail Item Detail "),
                 CPInformationItem(title: "Item Title", detail: nil),
             ],
             actions: [
-                textButton(style: .normal),
                 textButton(style: .confirm),
-                textButton(style: .cancel),
+                textButton(style: .normal),
+//                textButton(style: .cancel),
             ]
         )
         template.tabTitle = "Information"
@@ -154,24 +167,26 @@ import CarPlay
                     animated: true,
                     completion: nil
                 )
+                
+//                self.replaceTabs()
             }
         )
     }
 
     private func pointOfInterestTemplate() -> CPPointOfInterestTemplate {
         let template = CPPointOfInterestTemplate(
-            title: "Point of Interest Title",
+            title: "", //"Point of Interest Title",
             pointsOfInterest: [
-                pointOfInterest(withDetails: true),
-                pointOfInterest(withDetails: false),
-                pointOfInterest(withDetails: true),
-                pointOfInterest(withDetails: false),
-                pointOfInterest(withDetails: true),
-                pointOfInterest(withDetails: false),
-                pointOfInterest(withDetails: true),
-                pointOfInterest(withDetails: false),
-                pointOfInterest(withDetails: true),
-                pointOfInterest(withDetails: false),
+//                pointOfInterest(withDetails: true),
+//                pointOfInterest(withDetails: false),
+//                pointOfInterest(withDetails: true),
+//                pointOfInterest(withDetails: false),
+//                pointOfInterest(withDetails: true),
+//                pointOfInterest(withDetails: false),
+//                pointOfInterest(withDetails: true),
+//                pointOfInterest(withDetails: false),
+//                pointOfInterest(withDetails: true),
+//                pointOfInterest(withDetails: false),
             ],
             selectedIndex: NSNotFound
         )
