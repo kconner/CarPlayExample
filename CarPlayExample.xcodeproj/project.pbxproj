@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C127B382637085500F6A3EB /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C127B372637085500F6A3EB /* Assets.swift */; };
 		2C6EE9DD26338F3A006C0F2D /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 2C6EE9DC26338F3A006C0F2D /* readme.md */; };
 		2C6EE9E0263391D6006C0F2D /* ExampleCarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6EE9DF263391D6006C0F2D /* ExampleCarPlaySceneDelegate.swift */; };
 		2C9D12E226337D1F00AD1FCE /* CarPlayExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D12E126337D1F00AD1FCE /* CarPlayExampleApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C127B372637085500F6A3EB /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		2C6EE9DC26338F3A006C0F2D /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		2C6EE9DF263391D6006C0F2D /* ExampleCarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		2C9D12DE26337D1F00AD1FCE /* CarPlayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPlayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				2C9D12E726337D2000AD1FCE /* Preview Content */,
 				2C9D12F126337FFC00AD1FCE /* CarPlayExample.entitlements */,
 				2C6EE9DF263391D6006C0F2D /* ExampleCarPlaySceneDelegate.swift */,
+				2C127B372637085500F6A3EB /* Assets.swift */,
 			);
 			path = CarPlayExample;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				2C9D12E426337D1F00AD1FCE /* ContentView.swift in Sources */,
 				2C9D12E226337D1F00AD1FCE /* CarPlayExampleApp.swift in Sources */,
+				2C127B382637085500F6A3EB /* Assets.swift in Sources */,
 				2C6EE9E0263391D6006C0F2D /* ExampleCarPlaySceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
